@@ -8,7 +8,7 @@ public class YoutubeFilmappApplication {
 
 	public static void main(String[] args) {
 		
-	
+		SpringApplication.run(YoutubeFilmappApplication.class, args);
 		
 		
 	}
