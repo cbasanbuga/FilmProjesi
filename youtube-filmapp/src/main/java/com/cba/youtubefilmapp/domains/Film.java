@@ -42,7 +42,7 @@ public class Film {
 	@NotBlank(message = "Film yapimcisi bos olamaz!")
 	@Size(min = 2, max = 50, message = "Film yapimcisi '${validatedValue}' {min} ve {max} karakter arasında olmalıdır!")
 	@Column(nullable = false, length = 50)
-	private String procedure;
+	private String producer;
 	
 	@NotBlank(message = "Film turu bos olamaz!")
 	@Size(min = 2, max = 50, message = "Film turu '${validatedValue}' {min} ve {max} karakter arasında olmalıdır!")
