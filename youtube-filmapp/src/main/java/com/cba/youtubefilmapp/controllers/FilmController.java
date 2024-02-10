@@ -12,14 +12,14 @@ import com.cba.youtubefilmapp.services.FilmService;
 import com.cba.youtubefilmapp.domains.Film;
 
 @RestController
-@RequestMapping("films")
+@RequestMapping("/api")
 public class FilmController {
 
 	@Autowired
 	private FilmService filmService;
 	
 	//NOT: GET_ALL_FILMS
-	@GetMapping
+	@GetMapping("/films")
 	public ResponseEntity<List<Film>> ListAllFilms(){
 		
 		List<Film> films = filmService.getAllFilms();
