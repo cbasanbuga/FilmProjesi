@@ -1,14 +1,22 @@
 package com.cba.youtubefilmapp.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cba.youtubefilmapp.services.FilmService;
+
+import jakarta.validation.Valid;
+
 import com.cba.youtubefilmapp.domains.Film;
 
 @RestController
@@ -24,12 +32,19 @@ public class FilmController {
 		
 		List<Film> films = filmService.getAllFilms();
 		
-		return ResponseEntity.ok(films); //harikaa 
+		return ResponseEntity.ok(films); 
 		
 	}
 	
-	
 	//NOT: CREATE a new Film
+	@PostMapping("/films")
+	public ResponseEntity<Map<String, String>> createFilm(@Valid @RequestBody Film film){
+		filmService.createNewFilm(film);		
+		Map<String, String> map = new HashMap<>();
+		map.put("message", "Film başarı ile eklendi!");
+		map.put("status", "true");
+		return new ResponseEntity<>(map,HttpStatus.CREATED);
+	}
 		
 	//NOT: GET a Film
 		
