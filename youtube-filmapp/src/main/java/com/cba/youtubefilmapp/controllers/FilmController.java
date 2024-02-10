@@ -54,6 +54,12 @@ public class FilmController {
 	}
 		
 	//NOT: DELETE Film
+	@GetMapping("/films/{id}")
+	public ResponseEntity<String> deleteFilm(@PathVariable("id") Long id){
+		filmService.deleteFilm(id);
+		String message = "Film başarı ile silindi";
+		return  new ResponseEntity<>(message, HttpStatus.OK);
+	}
 		
 	//NOT: UPDATE Film
 }

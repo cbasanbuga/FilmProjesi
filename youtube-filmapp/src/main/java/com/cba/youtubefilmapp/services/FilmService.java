@@ -34,6 +34,10 @@ public class FilmService {
 	}
 	
 	//NOT: DELETE Film
+	public void deleteFilm(Long id) {
+		Film film = findFilm(id);
+		filmRepository.delete(film);
+	}
 	
 	//NOT: UPDATE Film
 	
