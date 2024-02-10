@@ -24,7 +24,7 @@ public class FilmController {
 		
 		List<Film> films = filmService.getAllFilms();
 		
-		return ResponseEntity.ok(films);
+		return ResponseEntity.ok(films); //harikaa 
 		
 	}
 	
