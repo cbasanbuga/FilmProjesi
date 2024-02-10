@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.cba.youtubefilmapp.repositories.FilmRepository;
 
 import com.cba.youtubefilmapp.domains.Film;
+import com.cba.youtubefilmapp.exceptions.ResourceNotFoundException;
+
 import java.util.List;
 
 @Service
@@ -25,13 +27,11 @@ public class FilmService {
 		filmRepository.save(film);
 	}
 
-
-	
-	
-	
-	
-	
 	//NOT: GET a Film
+	public Film findFilm(Long id) {
+		return filmRepository.findById(id).orElseThrow(()-> 
+			new ResourceNotFoundException(id + " numaralı film bulunamadı"));
+	}
 	
 	//NOT: DELETE Film
 	
